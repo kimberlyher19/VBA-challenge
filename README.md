@@ -1,5 +1,6 @@
 # VBA-challenge
-original code was put into chatgpt to help with coding and running through all ws
+original code was put into chatgpt to help with coding and running through all ws.
+
 functions were used in excel and converted to vba codes:
 
 Sub Min_Max()
