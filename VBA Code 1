@@ -1,0 +1,44 @@
+Sub VBA()
+Dim i As Long
+Dim lastrow As Long
+Dim ws As Worksheet
+Dim WorksheetName As String
+Dim Ticker As String
+Dim TickerTotal As String
+Dim Summary_Table_Row As Integer
+Dim QuarterlyChange As Double
+Dim PercentChange As Double
+Dim OpeningPrice As Double
+Dim ClosingPrice As Double
+Dim TotalVolume As Long
+Dim rng As Range
+
+Summary_Table_Row = 2
+
+
+  For Each ws In Worksheets
+
+    lastrow = ws.Cells(ws.Rows.Count, "A").End(xlUp).Row
+    'WorksheetName = ws.Name
+
+    For i = 2 To lastrow
+    
+    ws.Range("I1").Value = "Ticker"
+    ws.Range("J1").Value = "Quarterly Change"
+    ws.Range("K1").Value = "Percent Change"
+    ws.Range("L1").Value = "Total Stock Volume"
+    
+      If ws.Cells(i + 1, 1).Value <> ws.Cells(i, 1).Value Then
+        
+        Ticker = ws.Cells(i, 1).Value
+        ws.Range("I" & Summary_Table_Row).Value = Ticker
+        Summary_Table_Row = Summary_Table_Row + 1
+    
+      End If
+    
+    Next i
+  
+  Next ws
+
+End Sub
+ 
